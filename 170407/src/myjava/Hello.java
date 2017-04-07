@@ -1,3 +1,4 @@
+package myjava;
 
 public class Hello {
 
