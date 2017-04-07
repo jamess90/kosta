@@ -5,7 +5,16 @@ import java.util.Scanner;
 public class OpTset2 {
 
 	public static void main(String[] args) {
-
+//		int count = 500;
+//		int amount = count++ + 1000;	
+//		
+//		if(count++>1001){
+//			amount++;
+//		}
+//		System.out.println(amount++);
+//		System.out.println(--count);
+//		System.out.println(7%3);
+		
 		int amount;
 		int count_of_50000;
 		int count_of_10000;
