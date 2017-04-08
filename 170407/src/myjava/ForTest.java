@@ -16,5 +16,4 @@ public class ForTest {
 		System.out.println(count);
 		System.out.println(sum_num);
 	}
-
 }

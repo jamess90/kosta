@@ -15,8 +15,8 @@ public class ForExam2 {
 				}// if() end
 			}// for() end
 		}// for() end
-	}// main() end
-
+	}
+	
 	public static int func(int i, int j) {
 		return i + j;
 	}

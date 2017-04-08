@@ -10,7 +10,7 @@ public class ForExam {
 		for (int x = 0; x <= 10; x++) {
 			for (int y = 0; y <= 10; y++) {
 				if (func(x, y) == 10) {
-					System.out.println("x´Â " + x + ", y´Â " + y);
+					System.out.printf("x = %d, y = %d\n", x, y);
 				}
 			}
 		}
