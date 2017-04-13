@@ -1,3 +1,5 @@
 galaxy 8,990000,samsung
 iphone 7+,1000000,apple
 G6,9800000,LG
+gpro,200000,LG
+galaxy Note5,980000,samsung
