@@ -1,0 +1,3 @@
+galaxy 8,990000,samsung
+iphone 7+,1000000,apple
+G6,9800000,LG
