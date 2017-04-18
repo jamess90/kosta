@@ -150,8 +150,7 @@ order by case 등급 when '특급' then 1
 	연도별 입사자 수와 평균급여를 출력하시오
 */
 
-select	round(avg(salary),2) as 평균급여, 
-		case when hire_date < 19880101 then '1987'
+select	case when hire_date < 19880101 then '1987'
 			when hire_date < 19890101 then '1988'
 			when hire_date < 19900101 then '1989'
 			when hire_date < 19910101 then '1990'
@@ -166,6 +165,76 @@ select	round(avg(salary),2) as 평균급여,
 			when hire_date < 20000101 then '1999'
 			else '2000'
 		end 입사년도,
-        count(*) as 입사자수
+        count(*) as 입사자수,
+        round(avg(salary),2) as 평균급여
 from employees
 group by 입사년도;
+
+select	count(*) as 입사자수,
+		round(avg(salary),2) as 평균급여,
+		date_format(hire_date, '%Y') as 입사년도
+from employees
+group by 입사년도;
+
+select	count(*) as 입사자수,
+		round(avg(salary),2) as 평균급여,
+		year(hire_date) as 입사년도
+from employees
+group by 입사년도;
+
+# 부서별로 최고 급여자를 출력하시오.
+select max(salary), department_id
+from employees
+group by department_id;
+
+# where 조건에서 짝을 지어(묶어서) 케어와이즈? 조회하는 방법
+select * 
+from employees
+where (department_id, salary) in (select department_id, max(salary)
+from employees
+group by department_id)
+order by salary; 
+
+# Top-k Query : 조건을 만족하는 상위 k개의 결과를 빨리 얻기
+# 81년도에 입사한 사람 중 가장 월급이 많은 3명은 누구인가?
+## Oracle에서 rownum을 사용하는데 mysql 에서는 limit, offset 을 사용한다.
+## 15페이지를 가져오겠다 하면 한 페이지당 15개씩, 14페이지까지 스킵, limit 14*15, 15 식으로 해당되는 페이지 데이터만 가져오게 페이징한다.
+# IT 프로그래머 중에서 가장 급여를 많이 받는 직원 3명을 출력하시오.
+select * from jobs;
+
+select employee_id, first_name, salary
+from employees
+where job_id = 'IT_PROG'
+order by salary desc;
+
+## SET Operator ㅡ> 두 질의의 결과를 가지고 집합 연산
+## 		ㅡ> UNION, UNION ALL, INTERSECT, MINUS
+
+# set
+# UNION 과 UNION ALL의 차이
+# union ㅡ> 정렬된 결과를 보여주며, 공통된 것은 제외하고 보여준다.
+# union all ㅡ> 정렬에 대한 오버헤드가 없어지고, 공통된 것이 중복되어도 그대로 보여준다.
+# 100번 부서, IT_PROG
+
+select *
+from employees
+where department_id = 100
+union
+select *
+from employees
+where job_id='FI_MGR';
+
+# DDL과 DML의 차이점 ㅡ> Rollback 이 되고 되지 않는 차이
+# DDL ㅡ> Create, ALTER, DROP
+# DML ㅡ> delete, insert, update
+# DCL ㅡ> Revoke, Rollback, Commit, Grant
+set autocommit = 0;
+select @@autocommit;
+delete from job_history where employee_id=101;
+select * from job_history;
+rollback;
+
+# RDB 1970년부터 시작되었는데 가장 적절하게 데이터를 관리해주므로,
+# 빅데이터를 RDB로 관리하기는 비용이 너무 많이 든다. 
+# subQuery ㅡ> 쿼리 안의 쿼리, 하나의 SQL문 안에 포함되어 있는 또 다른 SQL문
+# 	ㅡ> inLine subQuery, Correated subQuery
