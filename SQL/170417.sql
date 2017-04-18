@@ -151,3 +151,53 @@ from		employees
 where		department_id is not null
 group by	department_id;
 
+
+/*
+각 도시(city)에 있는 모든 부서 직원들의 평균 급여와 근속년수를 조회하고자 한다.
+평균급여가 가장 높은 도시부터 도시명(city)과 평균 연봉을 출력하시오.
+평균급여는 천단위 절사, 콤마부여, 근속년수는 소수 2자리까지 나타내시오.
+단, 도시에 근무하는 직원이 10명 이하인 곳은 제외하고 조회한다.
+*/
+select * from employees;
+select * from countries;
+select * from regions;
+select * from departments;
+select * from locations;
+
+select	loc.city as 도시명,
+		dep.department_name as 부서이름,
+		format(round(avg(salary) * 1150,-3),0)	as 평균급여,
+		round((datediff(now(),emp.hire_date)/365.25),2) as 근속년수
+       
+from 	employees emp,
+		departments dep,
+		locations loc,
+		countries coun
+        
+where 	1=1 and
+		emp.department_id = dep.department_id and
+		dep.location_id = loc.location_id and
+		loc.country_id = coun.country_id
+        
+group by loc.city
+
+having count(dep.location_id) > 10
+
+order by 평균급여;
+
+
+select 	loc.city,
+		format(round(avg(salary*1150),-3),0) 평균급여,
+		round(avg(timestampdiff(day,hire_date,now())/365.25),2) 근속년수
+        
+from 	employees emp
+		join departments dep using(department_id)
+		join locations loc using(location_id)
+        
+where 1=1
+
+group by loc.city
+
+having count(loc.city)>10
+
+order by 평균급여;
