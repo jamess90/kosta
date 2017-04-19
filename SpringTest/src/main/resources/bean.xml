@@ -8,5 +8,5 @@
 		<bean id="mybean" class="com.rnbsoft.asd.MyBean">
 			<constructor-arg ref="testBean"></constructor-arg>
 		</bean>
-<!-- 		<bean id="testBean" class="com.rnbsoft.asd.TestBean" init-method="print" destroy-method=""></bean>
- --></beans>
+		<bean id="testBean" class="com.rnbsoft.asd.TestBean" scope="singleton"></bean>
+</beans>
