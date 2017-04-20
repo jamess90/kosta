@@ -53,6 +53,9 @@ create table job_history(
     foreign key(employee_id) references employees(employee_id),
     foreign key(department_id) references departments(department_id)
 );
+use hr;
+select *
+from departments;
 
 drop table job_history;
 
