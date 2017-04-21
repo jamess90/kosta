@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div style="margin: 0 auto; width: 400px;" >
+		<h1>웹 폼 사례</h1>
+		<form name="examForm" action="">
+		<table border="1px" style="text-align:center;">
+			<tr>
+				<td>사용자이름</td>
+				<td><input type="text" name="userName" id="userName" placeholder="이름을 입력하세요"></td>
+			</tr>
+			<tr>
+				<td>이메일</td>
+				<td><input type="text" name="userEmail" id="userEmail"></td>
+			</tr>
+			<tr>
+				<td>검색단어</td>
+				<td><input type="text" name="searchText" id="searchText"></td>
+			</tr>
+			<tr>
+				<td>취미</td>
+				<td>
+					<input type="checkbox" name="hobby" id="hobby1" value="sports">운동
+					<input type="checkbox" name="hobby" id="hobby2" value="music">악기
+					<input type="checkbox" name="hobby" id="hobby3" value="trip">여행
+				</td>
+			</tr>
+			<tr>
+				<td>성별</td>
+				<td>
+					<input type="radio" name="gender" id="gender1" value="man"> 남자
+					<input type="radio" name="gender" id="gender2" value="woman"> 여자
+				</td>
+			</tr>
+			<tr>
+				<td>점심메뉴</td>
+				<td>
+					<select name="runchMenu" id="runchMenu">
+						<option value="jja">짜장면</option>
+					 	<option value="jjam">짬뽕</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<br>
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+</body>
+</html>

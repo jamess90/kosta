@@ -1,0 +1,63 @@
+<div class="bbs_box">
+    <table class="bbs_list" summary="게시판 요약 설명(기획에서 받아서 적용)">
+        <caption>게시판 목록</caption>
+        <colgroup>
+            <col width="10%">
+            <col width="50%">
+            <col width="15%">
+            <col width="15%">
+            <col width="10%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">번호</th>
+                <th scope="col">제목</th>
+                <th scope="col">등록일자</th>
+                <th scope="col">채용기간</th>
+                <th scope="col">조회수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- D : loop 공지일경우 class="newest" 추가 -->
+            <tr class="newest">
+                <td><div class="td_cont">10</div></td>
+                <td class="alL"><div class="td_cont sbj"><a href="#">8월 수영장 이용 시간 제한 안내 공지</a><span class="new">NEW</span></div></td>
+                <td><div class="td_cont">2012/08/23</div></td>
+                <td><div class="td_cont litwo"><span class="alL">2012/08/23~<br>2012/08/24</span></div></td>
+                <td><div class="td_cont">98</div></td>
+            </tr>
+            <!-- //D : loop 공지일경우 -->
+            <!-- D : loop  일반 -->
+            <tr>
+                <!-- P : class="td_cont" 기본, class="td_cont litwo" 라인이2줄 위아래 padding이 줄어드는경우 -->
+                <td><div class="td_cont">8</div></td>
+                <td class="alL"><div class="td_cont sbj"><a href="#">롯데호텔, 한국 서비스 품질지수 호텔부문 1위</a><span class="new">NEW</span></div></td>
+                <td><div class="td_cont">2012/08/23</div></td>
+                <td><div class="td_cont litwo"><span class="alL">2012/08/23~<br>2012/08/24</span></div></td>
+                <td><div class="td_cont">98</div></td>
+            </tr>
+            <!-- //D : loop 일반 -->
+            <!-- D : 내용이 없을 경우 -->
+            <tr>
+                <td colspan="5" class="nodata"><div class="td_cont">등록된글이 없습니다.</div></td>
+            </tr>
+            <!-- //D : 내용이 없을 경우 -->
+        </tbody>
+    </table>
+</div>
+
+<style>
+.bbs_list{border-bottom:1px solid #666;}
+.bbs_list thead tr th{padding:13px 0 15px; border-bottom:1px solid #666; border-top:1px solid #666; font-weight:bold; color:#222;}
+.bbs_list tbody tr td{background:url(/front/img/com/bg_board_td.gif) repeat-x top left; text-align:center;}
+.bbs_list tbody tr:first-child td{background-image:none;}
+.bbs_list tbody tr td .td_cont{padding:14px 0;}
+.bbs_list tbody tr td .td_cont.litwo{padding:6px 0 5px;}
+.bbs_list tbody tr td .litwo span{display:inline-block;}
+.bbs_list tbody tr td .sbj{padding-left:14px; padding-right:14px;}
+.bbs_list tbody tr td .sbj a, .bbs_list tbody tr td .td_cont{color:#444;}
+.bbs_list tbody tr td .sbj a:hover{text-decoration:underline;}
+.bbs_list tbody tr td .new{padding:0 6px; font-weight:bold;}
+.bbs_list tbody tr td.nodata{height:100px;}
+.bbs_list tbody tr.newest td{background-color:#f6f6f6;}
+</style>

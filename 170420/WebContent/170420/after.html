@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="This is an HTML5 example">
+<meta name="keywords" content="HTML5, CSS3, JavaScript">
+<title>This text is the title of the document</title>
+
+<style type="text/css">
+	* {
+		margin: 0px;
+		padding: 0px;
+	} /* 모든 것에 적용하겠다는 뜻 */
+	
+	body {
+		text-align: center;
+	} /* body 태그 전체의 텍스트를 가운데정렬 */
+	
+	#wrapper {
+		text-align: left;
+		margin: 15px;
+	} /* wrapper div구역의 전체를 왼쪽정렬 */
+	
+	header h1 {
+		font: bold 30px verdana, sans-serif;
+		padding: 20px;
+		background-color: #FAED7D;
+		/* background: rgba(225, 0, 221, 0.2); */
+		border: 2px solid #ccccc9;
+	}
+	
+	nav {
+		text-align: center;
+		padding: 15px;
+		background: gray;
+	}
+
+	nav ul li {
+		display: inline-block;
+		margin: 2px 15px;
+		font: bold 25px verdana, sans-serif;
+		/* background: rgba(60, 13, 70, 0.2); */
+		background: #5CD1E5;
+		border: 2px solid #ccccc9;
+		margin: 15px;
+		border-radius: 10px;
+	}
+	#main_section {
+		float: left;
+		margin: 20px;
+		padding: 10px;
+		width: 660px;
+		background: rgba(225, 0, 221, 0.2);
+		border: 2px solid #ccccc9;
+	}
+	#main_aside {
+		float: left;
+		width: 220px;
+		margin: 20px;
+		padding: 10px;
+		background: #ccffff;
+		border: 2px solid #ccccc9;
+	}
+	#main_footer {
+		clear: both;
+		border-top: 3px solid #ccccc9;
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+	<div id="wrapper">
+		<header id="main_header">
+			<h1>This is the main title of the website</h1>
+		</header>
+		<nav id="main_menu">
+			<ul>
+				<li>home</li>
+				<li>photos</li>
+				<li>videos</li>
+				<li>contact</li>
+			</ul>
+		</nav>
+		<div id="container">
+			<section id="main_section">
+				<article>
+					<hgroup>
+						<h1>Title of post One</h1>
+						<h2>subtitle of the post One</h2>
+					</hgroup>
+					<p>posted 12-10-2011</p>
+					This is the text of my first post
+					<figure>
+						<img src="myimage.jpg">
+						<figcaption>This is the image of the first post</figcaption>
+					</figure>
+					<footer>
+						<p>comments (0)</p>
+					</footer>
+				</article>
+				<article>
+					<hgroup>
+						<h1>Title of post Two</h1>
+						<h2>subtitle of the post Two</h2>
+					</hgroup>
+					<p>posted 12-15-2011</p>
+					This is the text of my second post
+					<p>comments (0)</p>
+				</article>
+			</section>
+			<aside id="main_aside">
+				<blockquote>Article number one</blockquote>
+				<blockquote>Article number two</blockquote>
+			</aside>
+		</div>
+		<footer id="main_footer"> Copyright &copy; 2010-2011 </footer>
+	</div>
+</body>
+
+<script type="text/javascript">
+// 태그 안에 onclick="함수()" 쓰는 방식은 지양할 것
+window.onload = init;
+function init() {
+	//alert('init');
+	var menu = document.getElementById("main_menu");
+	menu.onclick = clickMenu;
+}
+function clickMenu() {
+	alert('menu clicked' + this.innerHTML);
+}
+
+</script>
+</html>
