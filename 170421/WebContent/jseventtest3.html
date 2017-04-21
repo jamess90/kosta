@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+*{
+	margine: 20px;
+	padding: 10px;
+
+}
+
+section{
+	background-color: #FFBB00;
+	
+}
+p{
+	background-color: #FAF4C0;
+	width: 100px;
+	height: 100px;
+}
+
+</style>
+<script type="text/javascript">
+	window.onload= init;
+	function init(){
+		mysection.onclick = clickSection;
+		myp.onfocus = clickP;
+	}
+	function clickSection(event){
+		alert('section was clicked, X='+ event.clientX+',Y='+ event.clientY);
+	}
+	function clickP(event){
+		alert('p was clicked, X='+ event.clientX+',Y='+ event.clientY);
+		if(event.stopPropagation)event.stopPropagation();
+	}
+</script>
+</head>
+<body>
+	<section id="mysection">
+		<p id="myp">여기는 p태그
+	</section>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//int count;
+	var count1;						// 초기화가 안되어서 false
+	if(count1){	alert('true');	} 
+	else {	alert('false');	}
+	
+	var count2 = 500;				// 초기화가 잘 되어서 true
+	if(count2){	alert('true');	} 
+	else {	alert('false');	}
+	
+	var count3 = 0;					//	값이 0일때는 false
+	if(count3){	alert('true');	} 
+	else {	alert('false');	}
+	
+	var count4 = '';				//	값이 없어서 false
+	if(count4){	alert('true');	} 
+	else {	alert('false');	}
+	
+	var count5 = "";				//	값이 없어서 false
+	if(count5){	alert('true');	} 
+	else {	alert('false');	}
+	
+	//if(count6){	alert('true');	} 	//	정의되지 않은 변수를 참조해서 오류
+	//
+	//else {	alert('false');	}
+	
+	//1~10
+	var count7;
+	for(count7=1; count7<=10; count7++){			//	잘 작동된다.
+		alert(count7);
+	}
+	
+	//for(int count8=1; count8<=10; count8++){		//	변수의 타입을 결정할 수는 없다.
+	//	alert(i);
+	//}
+	
+	var emp = {id:1234, name:'홍'};
+	var result='';
+	for(element in emp){
+		result+=emp[element];
+	}
+	
+	alert(result);
+	
+	var array=[1,2,3,4];
+	array[100]= 5000;
+	array[500]= 'test';
+	
+	
+	
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

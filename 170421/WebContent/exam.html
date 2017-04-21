@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#form{
+		margin: auto;
+		width: 30%;
+	}
+	table{
+		text-align: center;
+		border: 1px solid #C9C7C7;
+		padding: 2px;
+	}
+	table td{
+		border: 1px solid black;
+	}
+</style>
+<script type="text/javascript">
+	window.onload = init;
+	
+	function init(){
+		document.getElementById('userName').focus();
+		makeRowColor();
+		document.getElementById('submitBtn').onclick = submitF;
+	}
+	
+	function submitF(){
+		userNameCheck();
+		hobbyCheck();
+	}
+	function hobbyCheck(){
+		var hobby = document.getElementsByName('hobby');
+
+		for(var i=0; i<hobby.length; i++){
+			if(hobby[i].checked && hobby[i].value == 'exercise'){
+				alert('취미가 운동이시군요!');
+			}
+		}
+	}
+	function userNameCheck(){
+		var userName = document.getElementById('userName');
+		if(userName.value == null || userName.value == ""){
+			alert('사용자 이름 입력해주세요!');
+			userName.focus();
+		}
+	}
+	function makeRowColor(){
+	 	var trOddList = document.querySelectorAll('tr:nth-child(odd)');
+		for(var ele in trOddList){
+			if(trOddList[ele].style)
+				trOddList[ele].style.backgroundColor = 'green';
+		}
+		
+		var trEvenList = document.querySelectorAll('tr:nth-child(even)');
+		for(var ele in trEvenList){
+			if(trEvenList[ele].style)
+				trEvenList[ele].style.backgroundColor = "#FAF209";			
+		}  
+	}
+</script>
+<script>"undefined"==typeof CODE_LIVE&&(!function(e){var t={nonSecure:"50604",secure:"50609"},c={nonSecure:"http://",secure:"https://"},r={nonSecure:"127.0.0.1",secure:"gapdebug.local.genuitec.com"},n="https:"===window.location.protocol?"secure":"nonSecure";script=e.createElement("script"),script.type="text/javascript",script.async=!0,script.src=c[n]+r[n]+":"+t[n]+"/codelive-assets/bundle.js",e.getElementsByTagName("head")[0].appendChild(script)}(document),CODE_LIVE=!0);</script></head>
+<body data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-8" data-genuitec-path="/jstest/WebContent/exam1.html">
+<div id="form" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-8" data-genuitec-path="/jstest/WebContent/exam1.html">
+	<h2>웹 폼 사례</h2>
+	<form action="#" name="webForm" method="post">
+	<table>
+		<tr>
+			<td>사용자이름</td>
+			<td><input type="text" id="userName" name="userName" placeholder="이름을 입력하세요"></td>
+		</tr>
+		<tr>
+			<td>이메일</td>
+			<td><input type="email" id="email" name="email"></td>
+		</tr>
+		<tr>
+			<td>검색단어</td>
+			<td><input type="text" id="searchWord" name="searchWord"></td>
+		</tr>
+		<tr>
+			<td>취미</td>
+			<td>
+				<input type="checkbox" name="hobby" value="exercise">운동
+				<input type="checkbox" name="hobby" value="music">악기
+				<input type="checkbox" name="hobby" value="trip">여행
+			</td>
+		</tr>
+		<tr>
+			<td>성별</td>
+			<td>
+				<input type="radio" name="sex" value="male">남자
+				<input type="radio" name="sex" value="female">여자
+			</td>
+		</tr>	
+		<tr>
+			<td>점심메뉴</td>
+			<td>
+				<select id="lunchMenu" name="lunchMenu">
+				<option value="jjambbong">짬뽕</option>
+				<option value="jjamjang">짜장</option>
+				</select>
+			</td>
+		</tr>
+		
+	</table><p>
+	<input type="button" value="Submit" id="submitBtn">
+	</form>
+</div>
+</body>
+</html>

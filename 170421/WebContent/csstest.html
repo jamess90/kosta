@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script>
+			window.onload=init;
+			function init(){
+				//document.querySelectorAll('css선택자');
+				var trList = document.querySelectorAll('tr:nth-child(2n)');
+				for(var ele in trList){
+					trList[ele].style.backgroundColor = "red";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<table>
+			<tr><td>sample</td></tr>
+			<tr><td>sample</td></tr>
+			<tr><td>sample</td></tr>
+			<tr><td>sample</td></tr>
+			<tr><td>sample</td></tr>
+			<tr><td>sample</td></tr>
+			<tr><td>sample</td></tr>
+			<tr><td>sample</td></tr>
+			<tr><td>sample</td></tr>
+			<tr><td>sample</td></tr>
+		</table>		
+	</body>
+</html>
