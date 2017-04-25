@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	window.onload = init;
+	
+	function init() {
+		// 사용자 이름 포커스
+		document.getElementById("username").focus();
+		
+		// 줄단위 색상 변경
+		var trList = document.querySelectorAll('tr:nth-child(odd)');
+		for(var ele in trList){
+			if(trList[ele].style)trList[ele].style.backgroundColor = "skyblue";
+		}
+		myform.onsubmit= check;
+	}
+	
+	function check() {
+		if(document.getElementById("username").value.length == 0){
+			alert("이름을 입력하세요.");		
+			document.getElementById("username").focus();
+		}
+		
+		var hobby = document.getElementsByName("hobby");
+		if(hobby[0].checked == true)
+			alert("취미가 운동이군요.");
+		else if(hobby[1].checked == true)
+			alert("취미가 악기이군요.");
+		else if(hobby[1].checked == true)
+			alert("취미가 여행이군요.");
+	}
+</script>
+</head>
+<body>
+
+	<h1>웹 폼 사례</h1>
+	<form id="myform" action="" method="post">
+		<table border="1" width=300px>
+			<tr align="center">
+				<td>사용자이름</td>
+				<td><input type="text" id="username" name="name" placeholder="이름을 입력하세요" onload="self.focus();"></td>
+			</tr>
+			<tr align="center">
+				<td>이메일</td>
+				<td><input type="text" id="email" name="email"></td>
+			</tr>
+			<tr align="center">
+				<td>검색단어</td>
+				<td><input type="text" id="search" name="search"></td>
+			</tr>
+			<tr align="center">
+				<td>취미</td>
+				<td>
+					<input type="checkbox" name="hobby" id="sports" value="sports">운동
+					<input type="checkbox" name="hobby" id="instrument" value="instrument">악기
+					<input type="checkbox" name="hobby" id="travle" value="travle">여행
+				</td>
+			</tr>
+			<tr align="center">
+				<td>성별</td>
+				<td>
+					<input type="radio" name="gender" id="male" value="male">남자
+					<input type="radio" name="gender" id="female" value="female">여자
+				</td>
+			</tr>
+			<tr align="center">
+				<td>점심메뉴</td>
+				<td>
+					<select name="Lunch" id="Lunch" >
+						<option value="1">짜장면</option>
+						<option value="2">짬뽕</option>
+						<option value="3">볶음밥</option>	
+					</select>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>

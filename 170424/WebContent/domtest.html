@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	window.onload= init;
+	
+	function init(){
+		//window.navigator;	
+		var str= '';
+		for(var index in navigator){
+			str+= 'index='+ index+',value='+ navigator[index];
+		}
+		alert(str);
+	}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

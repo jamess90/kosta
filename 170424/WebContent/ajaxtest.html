@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Insert title here</title>
+      <script>
+         window.onload= init;
+         var ajax ;
+         function init(){
+            ajax = new XMLHttpRequest();
+            myb.onclick=clickMe;
+         }
+         function clickMe(){
+            //Ajax
+            ajax.onreadystatechange = dealAjax;
+            ajax.open('GET','JQServlet',true);
+            ajax.send();
+            
+         }
+         function dealAjax(){
+            if(ajax.readyState == 4 && ajax.status ==200){
+               //alert(ajax.responseText);
+               mysection.innerHTML += ajax.responseText;
+               var a = ajax.responseText;
+               console.log(a);
+               
+               var jsontext = '{"firstname":"Jesper","surname":"Aaberg","phone":["555-0100","555-0120"]}';
+               var contact = JSON.parse(a);
+               console.log(contact.ashley);
+            }
+            
+         }
+      </script>
+   </head>
+   <body>
+      <section id="mysection"></section>
+      <input type="button" id="myb" value="clickMe"/>
+   </body>
+</html>

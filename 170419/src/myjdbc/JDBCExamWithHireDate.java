@@ -6,26 +6,26 @@ import java.util.Scanner;
 public class JDBCExamWithHireDate {
 	public static void main(String[] args) throws Exception {
 		Scanner scan = new Scanner(System.in);
-		System.out.print(" ÀÔ»ç³âµµ¸¦ ÀÔ·ÂÇÏ¼¼¿ä(0Àº Á¾·á): ");
+		System.out.print(" ï¿½Ô»ï¿½âµµï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½(0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½): ");
 		int joinDate = scan.nextInt();
 		EmpDAO dao = null;
 		while (joinDate != 0) {
 			dao = new EmpDAO();
-			List<EmpVO> list = dao.getInformation(joinDate);
+			List<DeptVO> list = dao.getInformation(joinDate);
 			String salarySum = dao.getsalarySum(list);
 			for (int i = 0; i < list.size(); i++) {
-				EmpVO vo = list.get(i);
-				System.out.print("»ç¿ø¹øÈ£: " + vo.getEmployee_id());
-				System.out.print(" ¼º: " + vo.getLast_name());
-				System.out.print(" ¸í: " + vo.getFirst_name());
-				System.out.print(" ÀÔ»çÀÏ: " + vo.getHire_date());
-				System.out.println(" ¿¬ºÀ: " + vo.getSalary());
+				DeptVO vo = list.get(i);
+				System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½È£: " + vo.getEmployee_id());
+				System.out.print(" ï¿½ï¿½: " + vo.getLast_name());
+				System.out.print(" ï¿½ï¿½: " + vo.getFirst_name());
+				System.out.print(" ï¿½Ô»ï¿½ï¿½ï¿½: " + vo.getHire_date());
+				System.out.println(" ï¿½ï¿½ï¿½ï¿½: " + vo.getSalary());
 			}
-			System.out.println(" ±Þ¿©ÀÇ ÃÑÇÕ: " + salarySum);
-			System.out.println("ÀÔ»ç³âµµ¸¦ ÀÔ·ÂÇÏ¼¼¿ä(0Àº Á¾·á): ");
+			System.out.println(" ï¿½Þ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: " + salarySum);
+			System.out.println("ï¿½Ô»ï¿½âµµï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½(0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½): ");
 			 joinDate = scan.nextInt();
 		}
 
-		System.out.println("ÇÁ·Î±×·¥ Á¾·á");
+		System.out.println("ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 	}
 }

@@ -18,22 +18,22 @@ public class HRMain3 {
 		int empName = 1;
 		while (empName != 0) {
 			
-			System.out.print("\nÀÌ¸§ÀÔ·Â(exit=enter) : ");
+			System.out.print("\nï¿½Ì¸ï¿½ï¿½Ô·ï¿½(exit=enter) : ");
 			
 			empName = scan.nextInt();
 			
-			List<EmpVO> list = callDB(empName);
+			List<DeptVO> list = callDB(empName);
 			
 			for (int i = 0; i < list.size(); i++) {
 				System.out.println(list.get(i).getLast_name());
 				System.out.println(list.get(i).getFirst_name());
 			}
 		}
-		System.out.println("ÇÁ·Î±×·¥ Á¾·á");
+		System.out.println("ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 	}
 
-	private static List<EmpVO> callDB(int empName) throws Exception {
-		List<EmpVO> result = new ArrayList<>();
+	private static List<DeptVO> callDB(int empName) throws Exception {
+		List<DeptVO> result = new ArrayList<>();
 		Connection con = null ;
 		CallableStatement cstmt = null;
 		ResultSet rs = null;
@@ -52,7 +52,7 @@ public class HRMain3 {
 			rs = cstmt.executeQuery();
 
 			while (rs.next()) {
-				EmpVO empVO = new EmpVO();
+				DeptVO empVO = new DeptVO();
 				empVO.setLast_name(rs.getString("last_name"));
 				empVO.setFirst_name(rs.getString("first_name"));
 				result.add(empVO);

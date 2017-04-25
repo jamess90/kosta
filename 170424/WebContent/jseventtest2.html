@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	
+	window.onload = init;
+	
+	function init(){
+		var myb = document.getElementById('myButton');
+		myb.onclick = myf;
+
+		var mys = document.getElementById('mySelect');
+		mys.onchange = myf2;
+	}
+	
+	function myf(){
+		alert('clicked');	//	window 객체에 들어있다.
+		//window.alert();	//	default 값이 window라서 생략이 가능하다.
+	}
+	
+	function myf2(){
+		//window.alert('Menu changed');
+		if(window.confirm('진짜?')){
+			alert('ㅇㅋㅇㅋ알았다~');
+		} else {
+			alert('다시 골라봐~');
+		}
+	}
+	
+</script>
+</head>
+<body>
+	<input id="myButton" type="button" value="눌러보숑"><br>
+	<h1>오늘 뭐먹?</h1>
+	<select id="mySelect">
+		<option>뼈해장국</option>
+		<option>짬뽕</option>
+		<option>순대국</option>
+		<option>김치찌개</option>
+		<option>된장찌개</option>
+		<option>순두부찌개</option>
+		<option>라면</option>
+		<option>수육국밥</option>
+	</select>
+
+</body>
+</html>

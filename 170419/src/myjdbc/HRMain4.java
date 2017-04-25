@@ -18,11 +18,11 @@ public class HRMain4 {
 		String empName = "d";
 		while (empName.length() != 0) {
 			
-			System.out.print("\nÀÌ¸§ÀÔ·Â(exit=enter) : ");
+			System.out.print("\nï¿½Ì¸ï¿½ï¿½Ô·ï¿½(exit=enter) : ");
 			
 			empName = scan.nextLine();
 			
-			List<EmpVO> list = callDB(empName);
+			List<DeptVO> list = callDB(empName);
 			
 			for (int i = 0; i < list.size(); i++) {
 				System.out.println(list.get(i).getLast_name());
@@ -31,11 +31,11 @@ public class HRMain4 {
 				System.out.println(list.get(i).getHire_date());
 			}
 		}
-		System.out.println("ÇÁ·Î±×·¥ Á¾·á");
+		System.out.println("ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 	}
 
-	private static List<EmpVO> callDB(String empName) throws Exception {
-		List<EmpVO> result = new ArrayList<>();
+	private static List<DeptVO> callDB(String empName) throws Exception {
+		List<DeptVO> result = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -51,7 +51,7 @@ public class HRMain4 {
 			rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				EmpVO empVO = new EmpVO();
+				DeptVO empVO = new DeptVO();
 				empVO.setLast_name(rs.getString("last_name"));
 				empVO.setFirst_name(rs.getString("first_name"));
 				empVO.setHire_date(rs.getString("hire_date"));

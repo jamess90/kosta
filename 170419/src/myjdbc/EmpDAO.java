@@ -9,12 +9,12 @@ import java.util.List;
 public class EmpDAO {
 	
 
-	public List<EmpVO> getInformation(int joinDate) throws Exception {
-		List<EmpVO> result = new ArrayList<>();
+	public List<DeptVO> getInformation(int joinDate) throws Exception {
+		List<DeptVO> result = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		EmpVO vo = null;
+		DeptVO vo = null;
 		try {
 			con = ConnectionPoolUtil.getInstance().getConnection();
 			// con.setAutoCommit(false);
@@ -27,7 +27,7 @@ public class EmpDAO {
 			
 			rs = stmt.executeQuery();
 			while (rs.next()) {
-				vo = new EmpVO();
+				vo = new DeptVO();
 				vo.setEmployee_id(rs.getInt("employee_id"));
 				vo.setLast_name(rs.getString("last_name"));
 				vo.setFirst_name(rs.getString("first_name"));
@@ -49,12 +49,12 @@ public class EmpDAO {
 		return result;
 	}
 
-	public String getsalarySum(List<EmpVO> list) {
+	public String getsalarySum(List<DeptVO> list) {
 		
 		String salarySum;
 		int sum = 0;
 		for(int i=0; i<list.size(); i++) {
-			EmpVO vo = list.get(i);
+			DeptVO vo = list.get(i);
 			sum += vo.getSalary();
 		}
 		salarySum = String.format("%,d", sum);

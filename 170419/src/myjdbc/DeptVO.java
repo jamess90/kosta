@@ -1,6 +1,6 @@
 package myjdbc;
 
-public class EmpVO {
+public class DeptVO {
 	int employee_id;
 	String last_name;
 	int salary;

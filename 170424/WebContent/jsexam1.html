@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	//	배열을 선언한다.
+	//	배열을 전달받아서 1부터 45까지 사이의 숫자를
+	//	랜덤하게 생성하여 6개를 넣는 함수를 정의한다.
+	//	함수를 호출한다.
+	//	배열에 저장된 값을 출력한다. for loop
+
+	var lotto = [];
+	
+	function selectNum(param){
+		var temp;
+		for(temp = 0; temp<6; temp++){
+			param[temp] = Math.floor(Math.random() * 45) + 1;
+		}
+	}
+	
+	function printNum(param){
+		for(var i = 0; i<6; i++){
+			console.log(param[i]);
+		}
+	}
+	
+	selectNum(lotto);
+	printNum(lotto);
+	
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

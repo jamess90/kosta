@@ -14,43 +14,43 @@ public class HRMain {
 		Scanner scan = new Scanner(System.in);
 		int deptNo = 100;
 		while (deptNo != 0) {
-			// »ç¿ëÀÚ·ÎºÎÅÍ ºÎ¼­¹øÈ£¸¦ ÀÔ·Â¹Þ¾Æ¼­ ±× ºÎ¼­¿¡ ±Ù¹«ÇÏ´Â Á÷¿ø ¸ñ·ÏÀ» Ãâ·ÂÇÔ
-			// 1. »ç¿ëÀÚ¿¡°Ô ºÎ¼­¹øÈ£¸¦ ÀÔ·ÂÇÒ °ÍÀ» ¾Ë¸°´Ù.
-			System.out.print("\nºÎ¼­¹øÈ£(exit=0) : ");
-			// 2. »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ¼ýÀÚ¸¦ º¯¼ö¿¡ ÀúÀåÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½Ú·Îºï¿½ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·Â¹Þ¾Æ¼ï¿½ ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½Ù¹ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+			// 1. ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ï¿½ï¿½.
+			System.out.print("\nï¿½Î¼ï¿½ï¿½ï¿½È£(exit=0) : ");
+			// 2. ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			deptNo = scan.nextInt();
-			// 3. DB¿¡¼­ ±× ¹øÈ£¿¡ ÇØ´çÇÏ´Â Á÷¿ø ¸ñ·ÏÀ» Á¶È¸ÇÑ´Ù.
-			List<EmpVO> list = callDB(deptNo);
-			// 4. list¸¦ Ãâ·ÂÇÑ´Ù.
+			// 3. DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ñ´ï¿½.
+			List<DeptVO> list = callDB(deptNo);
+			// 4. listï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			for (int i = 0; i < list.size(); i++) {
 				System.out.println(list.get(i).getLast_name());
 				System.out.println(list.get(i).getSalary());
 				System.out.println(list.get(i).getHire_date());
 			}
 		}
-		System.out.println("ÇÁ·Î±×·¥ Á¾·á");
+		System.out.println("ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 	}
 
-	private static List<EmpVO> callDB(int deptNo) throws Exception {
-		// 1. µå¶óÀÌ¹ö Å¬·¡½º¸¦ ·ÎµùÇÑ´Ù
+	private static List<DeptVO> callDB(int deptNo) throws Exception {
+		// 1. ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½Ñ´ï¿½
 		Class.forName("org.gjt.mm.mysql.Driver");
-		// 2. Ä¿³Ø¼ÇÀ» »ý¼ºÇÑ´Ù.
+		// 2. Ä¿ï¿½Ø¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hr", "root", "1ghddlr!@");
-		// 3. Statement¸¦ »ý¼ºÇÑ´Ù.
+		// 3. Statementï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		Statement stmt = con.createStatement();
 		String sql = "select * from employees " + "where department_id=" + deptNo;
-		// 4. resultÀýÀ» »ý¼ºÇÑ´Ù.
+		// 4. resultï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		ResultSet rs = stmt.executeQuery(sql);
-		// 5. result¸¦ ÂüÁ¶ÇÑ´Ù.
-		List<EmpVO> result = new ArrayList<>();
+		// 5. resultï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+		List<DeptVO> result = new ArrayList<>();
 		while (rs.next()) {
-			EmpVO empVO = new EmpVO();
+			DeptVO empVO = new DeptVO();
 			empVO.setLast_name(rs.getString("last_name"));
 			empVO.setSalary(rs.getInt("salary"));
 			empVO.setHire_date(rs.getString("hire_date"));
 			result.add(empVO);
 		}
-		// 6. Ä¿³Ø¼ÇÀ» ´Ý´Â´Ù.
+		// 6. Ä¿ï¿½Ø¼ï¿½ï¿½ï¿½ ï¿½Ý´Â´ï¿½.
 		con.close();
 		return result;
 	}
